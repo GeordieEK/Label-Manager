@@ -39,4 +39,18 @@ public class StudentService {
     public void addStudent(Student student) {
         studentList.add(student);
     }
+
+    public void updateStudent(long id, Student student) {
+        for (int i = 0; i < studentList.size(); i++) {
+            Student s = studentList.get(i);
+            if (s.getId().equals(id)) {
+                studentList.set(i, student);
+                return;
+            }
+        }
+    }
+
+    public void deleteStudent(long id) {
+        studentList.removeIf(s -> s.getId().equals(id));
+    }
 }

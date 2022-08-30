@@ -13,7 +13,7 @@ import java.util.List;
 @RequestMapping(path = "api/v1")
 public class StudentController {
 
-    // @Autowired annotation marks this as something that needs dependency injection
+    // @Autowired annotation marks this as something that is involved in dependency injection
     // This means when your method runs, there's an instance of the dependent object available
     @Autowired
     private StudentService studentService;
@@ -35,5 +35,15 @@ public class StudentController {
     @PostMapping(path = "/student")
     public void addStudent(@RequestBody Student student) {
         studentService.addStudent(student);
+    }
+
+    @PutMapping(path = "/student/{id}")
+    public void updateStudent(@RequestBody Student student, @PathVariable long id) {
+        studentService.updateStudent(id, student);
+    }
+
+    @DeleteMapping(path = "/student/{id}")
+    public void deleteStudent(@PathVariable long id) {
+        studentService.deleteStudent(id);
     }
 }
