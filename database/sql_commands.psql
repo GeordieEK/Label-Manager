@@ -1,0 +1,14 @@
+INSERT INTO album (
+    catalog_num,
+    album_title,
+    release_date,
+    album_sales,
+    prod_cost,
+    album_revenue
+)
+VALUES
+    ('SALT001', 'SALT001', '2015-11-01', 0, 0, 0),
+    ('SALT002', 'SALT002', '2016-04-01', 0, 0, 0),
+    ('SALT003', '20092', '2016-10-28', 0, 0, 0),
+    ('SALT004', 'Hybrid Rhythm', '2017-02-10', 0, 0, 0),
+    ('SALT005', 'Waves Of Nothing', '2017-05-01', 0, 0, 0);
