@@ -1,8 +1,14 @@
 package com.Label.Manager.Student;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.time.LocalDate;
 
+@Entity
+// @Entity tells JPA to use this class to create a row in a relational table
 public class Student {
+    @Id
+    // AmigosCode JPA 2021 Tutorial, 35 mins, gives details on how to have generated sequence for ID
     private Long id;
     private String name;
     private String email;

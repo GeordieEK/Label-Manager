@@ -1,23 +1,23 @@
-package data;
+package com.Label.Manager.Song;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name="album")
-public class Album {
+@Table(name="song")
+public class Song {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="catalog_num")
     private String catalogNum;
-    @Column(name="album_title")
-    private String albumTitle;
+    @Column(name="song_title")
+    private String songTitle;
     @Column(name="release_date")
     private String releaseDate;
-    @Column(name="album_sales")
-    private int albumSales;
+    @Column(name="song_sales")
+    private int songSales;
     @Column(name="prod_cost")
     private float cost;
-    @Column(name="album_revenue")
+    @Column(name="song_revenue")
     private int revenue;
 
     public String getCatalogNum() {
@@ -28,12 +28,12 @@ public class Album {
         this.catalogNum = catalogNum;
     }
 
-    public String getAlbumTitle() {
-        return albumTitle;
+    public String getSongTitle() {
+        return songTitle;
     }
 
-    public void setAlbumTitle(String albumTitle) {
-        this.albumTitle = albumTitle;
+    public void setSongTitle(String songTitle) {
+        this.songTitle = songTitle;
     }
 
     public String getReleaseDate() {
@@ -44,12 +44,12 @@ public class Album {
         this.releaseDate = releaseDate;
     }
 
-    public int getAlbumSales() {
-        return albumSales;
+    public int getSongSales() {
+        return songSales;
     }
 
-    public void setAlbumSales(int albumSales) {
-        this.albumSales = albumSales;
+    public void setSongSales(int songSales) {
+        this.songSales = songSales;
     }
 
     public float getCost() {
@@ -70,11 +70,11 @@ public class Album {
 
     @Override
     public String toString() {
-        return "album{" +
+        return "song{" +
                 "catalogNum='" + catalogNum + '\'' +
-                ", albumTitle='" + albumTitle + '\'' +
+                ", songTitle='" + songTitle + '\'' +
                 ", releaseDate='" + releaseDate + '\'' +
-                ", albumSales=" + albumSales +
+                ", songSales=" + songSales +
                 ", cost=" + cost +
                 ", revenue=" + revenue +
                 '}';

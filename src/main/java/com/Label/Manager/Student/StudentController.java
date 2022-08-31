@@ -3,9 +3,8 @@ package com.Label.Manager.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDate;
-import java.time.Month;
 import java.util.List;
+import java.util.Optional;
 
 //Tells Spring this is a REST controller
 @RestController
@@ -27,7 +26,7 @@ public class StudentController {
     @GetMapping(path = "/student/{id}")
     // @PathVariable tells spring to pull the variable from the url path portion in {}
     // They will automatically match if the variable in the path and code are the same, or it can be passed as a parameter to @PathVariable
-    public Student getStudent(@PathVariable long id) {
+    public Optional<Student> getStudent(@PathVariable Long id) {
         return studentService.getStudent(id);
     }
 
@@ -38,12 +37,12 @@ public class StudentController {
     }
 
     @PutMapping(path = "/student/{id}")
-    public void updateStudent(@RequestBody Student student, @PathVariable long id) {
+    public void updateStudent(@RequestBody Student student, @PathVariable Long id) {
         studentService.updateStudent(id, student);
     }
 
     @DeleteMapping(path = "/student/{id}")
-    public void deleteStudent(@PathVariable long id) {
+    public void deleteStudent(@PathVariable Long id) {
         studentService.deleteStudent(id);
     }
 }

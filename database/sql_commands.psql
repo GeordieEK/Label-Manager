@@ -1,4 +1,4 @@
-INSERT INTO album (
+INSERT INTO student (
     catalog_num,
     album_title,
     release_date,

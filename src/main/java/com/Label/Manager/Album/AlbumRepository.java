@@ -1,4 +1,4 @@
-package data;
+package com.Label.Manager.Album;
 
 import org.springframework.data.repository.CrudRepository;
 
