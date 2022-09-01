@@ -10,27 +10,21 @@ import java.util.Optional;
 
 @Service
 public class SongService {
+    private final SongRepository songRepository;
 
-    // @Autowired means that when Spring creates an instance of songService,
-    // it's going to inject an instance of songRepository, ready to use in methods.
+    // private ArrayList<Song> songList = new ArrayList<>(Arrays.asList());
     @Autowired
-    private SongRepository songRepository;
+    public SongService(SongRepository songRepository) {
+        this.songRepository = songRepository;
+    }
 
-    private ArrayList<Song> songList = new ArrayList<>(Arrays.asList(
-
-    ));
-
-    public List<Song> getAllSongs() {
-        //findAll() will connect to the DB, run a query, get all song rows,
-        // convert each of them to song instances and return them
+    public List<Song> getAllSongs(String albumId) {
         List<Song> songs = new ArrayList<>();
-        // ::add is a method reference which is like a lambda expression (more info on lambda basics at javabrains.io)
-        songRepository.findAll().forEach(songs::add);
+        songRepository.findByAlbumId(albumId).forEach(songs::add);
         return songs;
     }
 
     public Optional<Song> getSong(String id) {
-        // return songList.stream().filter(s -> s.getId().equals(id)).findFirst().orElse(null);
         return songRepository.findById(id);
     }
 
@@ -38,14 +32,7 @@ public class SongService {
         songRepository.save(song);
     }
 
-    public void updateSong(Long id, Song song) {
-//        for (int i = 0; i < songList.size(); i++) {
-//            song s = songList.get(i);
-//            if (s.getId().equals(id)) {
-//                songList.set(i, song);
-//                return;
-//            }
-//        }
+    public void updateSong(Song song) {
         songRepository.save(song);
     }
 

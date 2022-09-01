@@ -20,6 +20,18 @@ public class Album {
     @Column(name="album_revenue")
     private int revenue;
 
+    public Album() {
+    }
+
+    public Album(String catalogNum, String albumTitle, String releaseDate, int albumSales, float cost, int revenue) {
+        this.catalogNum = catalogNum;
+        this.albumTitle = albumTitle;
+        this.releaseDate = releaseDate;
+        this.albumSales = albumSales;
+        this.cost = cost;
+        this.revenue = revenue;
+    }
+
     public String getCatalogNum() {
         return catalogNum;
     }

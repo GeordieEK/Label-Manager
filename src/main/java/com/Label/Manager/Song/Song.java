@@ -1,5 +1,7 @@
 package com.Label.Manager.Song;
 
+import com.Label.Manager.Album.Album;
+
 import javax.persistence.*;
 
 @Entity
@@ -19,6 +21,31 @@ public class Song {
     private float cost;
     @Column(name="song_revenue")
     private int revenue;
+
+    @ManyToOne
+    @JoinColumn(name = "album_catalog_num")
+    private Album album;
+
+    public Song() {
+    }
+
+    public Song(String catalogNum, String songTitle, String releaseDate, int songSales, float cost, int revenue, String albumId) {
+        this.catalogNum = catalogNum;
+        this.songTitle = songTitle;
+        this.releaseDate = releaseDate;
+        this.songSales = songSales;
+        this.cost = cost;
+        this.revenue = revenue;
+        this.album = new Album(albumId, "", "", 0, 0, 0);
+    }
+
+    public Album getAlbum() {
+        return album;
+    }
+
+    public void setAlbum(Album album) {
+        this.album = album;
+    }
 
     public String getCatalogNum() {
         return catalogNum;

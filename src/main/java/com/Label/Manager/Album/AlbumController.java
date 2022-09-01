@@ -9,21 +9,24 @@ import java.util.Optional;
 //Tells Spring this is a REST controller
 @RestController
 // @RequestMapping signifies the type of request and its url path, it is used at class level
-@RequestMapping(path = "api/v1")
+@RequestMapping(path = "/album")
 public class AlbumController {
+    private AlbumService albumService;
 
     // @Autowired annotation marks this as something that is involved in dependency injection
     // This means when your method runs, there's an instance of the dependent object available
     @Autowired
-    private AlbumService albumService;
+    public AlbumController(AlbumService albumService) {
+        this.albumService = albumService;
+    }
 
     // @GetMapping is @RequestMapping combined with .GET and is used at method level
-    @GetMapping(path = "/album")
+    @GetMapping
     public List<Album> getAllAlbums() {
         return albumService.getAllAlbums();
     }
 
-    @GetMapping(path = "/album/{id}")
+    @GetMapping(path = "/{id}")
     // @PathVariable tells spring to pull the variable from the url path portion in {}
     // They will automatically match if the variable in the path and code are the same, or it can be passed as a parameter to @PathVariable
     public Optional<Album> getAlbum(@PathVariable String id) {
@@ -31,17 +34,17 @@ public class AlbumController {
     }
 
     // @RequestBody allows for the .json payload of the request body to be converted to a album instance
-    @PostMapping(path = "/album")
+    @PostMapping
     public void addAlbum(@RequestBody Album album) {
         albumService.addalbum(album);
     }
 
-    @PutMapping(path = "/album/{id}")
+    @PutMapping(path = "/{id}")
     public void updateAlbum(@RequestBody Album album, @PathVariable Long id) {
         albumService.updatealbum(id, album);
     }
 
-    @DeleteMapping(path = "/album/{id}")
+    @DeleteMapping(path = "/{id}")
     public void deleteAlbum(@PathVariable String id) {
         albumService.deletealbum(id);
     }
