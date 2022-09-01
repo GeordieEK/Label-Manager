@@ -1,5 +1,22 @@
-INSERT INTO student (
-    catalog_num,
+CREATE TABLE IF NOT EXISTS album(
+                                    album_id VARCHAR(10),
+                                    album_title VARCHAR(50),
+                                    release_date DATE,
+                                    album_sales INT,
+                                    prod_cost FLOAT,
+                                    album_revenue FLOAT
+);
+
+CREATE TABLE IF NOT EXISTS song(
+                                    song_id VARCHAR(20),
+                                    catalog_num VARCHAR(10),
+                                    song_title VARCHAR(70),
+                                    song_sales INT,
+                                    song_revenue FLOAT
+);
+
+INSERT INTO album (
+    album_id,
     album_title,
     release_date,
     album_sales,
@@ -11,4 +28,18 @@ VALUES
     ('SALT002', 'SALT002', '2016-04-01', 0, 0, 0),
     ('SALT003', '20092', '2016-10-28', 0, 0, 0),
     ('SALT004', 'Hybrid Rhythm', '2017-02-10', 0, 0, 0),
-    ('SALT005', 'Waves Of Nothing', '2017-05-01', 0, 0, 0);
+    ('SALT005', 'Waves Of Nothing', '2017-05-01', 0, 0, 0),
+    ('SALT006', 'Honey Mushrooms', '2017-10-16', 0, 0, 0);
+
+INSERT INTO song (
+    song_id,
+    album_album_id,
+    song_title,
+    song_sales,
+    song_revenue
+)
+VALUES
+    ('test_code1', 'SALT001', 'test_song_1', 0, 0),
+    ('test_code2', 'SALT001', 'test_song_2', 0, 0),
+    ('test_code3', 'SALT001', 'test_song_3', 0, 0),
+    ('test_code4', 'SALT001', 'test_song_4', 0, 0);

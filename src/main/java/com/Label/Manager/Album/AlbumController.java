@@ -30,22 +30,22 @@ public class AlbumController {
     // @PathVariable tells spring to pull the variable from the url path portion in {}
     // They will automatically match if the variable in the path and code are the same, or it can be passed as a parameter to @PathVariable
     public Optional<Album> getAlbum(@PathVariable String id) {
-        return albumService.getalbum(id);
+        return albumService.getAlbum(id);
     }
 
     // @RequestBody allows for the .json payload of the request body to be converted to a album instance
     @PostMapping
     public void addAlbum(@RequestBody Album album) {
-        albumService.addalbum(album);
+        albumService.addAlbum(album);
     }
 
     @PutMapping(path = "/{id}")
     public void updateAlbum(@RequestBody Album album, @PathVariable Long id) {
-        albumService.updatealbum(id, album);
+        albumService.updateAlbum(id, album);
     }
 
     @DeleteMapping(path = "/{id}")
     public void deleteAlbum(@PathVariable String id) {
-        albumService.deletealbum(id);
+        albumService.deleteAlbum(id);
     }
 }

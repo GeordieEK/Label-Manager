@@ -10,15 +10,18 @@ import java.util.Optional;
 
 @Service
 public class AlbumService {
-
-    // @Autowired means that when Spring creates an instance of albumService,
-    // it's going to inject an instance of albumRepository, ready to use in methods.
-    @Autowired
-    private AlbumRepository albumRepository;
+    private final AlbumRepository albumRepository;
 
     private ArrayList<com.Label.Manager.Album.Album> albumList = new ArrayList<>(Arrays.asList(
 
     ));
+
+    // @Autowired means that when Spring creates an instance of albumService,
+    // it's going to inject an instance of albumRepository, ready to use in methods.
+    @Autowired
+    public AlbumService(AlbumRepository albumRepository) {
+        this.albumRepository = albumRepository;
+    }
 
     public List<Album> getAllAlbums() {
         //findAll() will connect to the DB, run a query, get all album rows,
@@ -29,16 +32,16 @@ public class AlbumService {
         return albums;
     }
 
-    public Optional<Album> getalbum(String id) {
+    public Optional<Album> getAlbum(String id) {
         // return albumList.stream().filter(s -> s.getId().equals(id)).findFirst().orElse(null);
         return albumRepository.findById(id);
     }
 
-    public void addalbum(Album album) {
+    public void addAlbum(Album album) {
         albumRepository.save(album);
     }
 
-    public void updatealbum(Long id, Album album) {
+    public void updateAlbum(Long id, Album album) {
 //        for (int i = 0; i < albumList.size(); i++) {
 //            album s = albumList.get(i);
 //            if (s.getId().equals(id)) {
@@ -49,7 +52,7 @@ public class AlbumService {
         albumRepository.save(album);
     }
 
-    public void deletealbum(String id) {
+    public void deleteAlbum(String id) {
         // albumList.removeIf(s -> s.getId().equals(id));
         albumRepository.deleteById(id);
     }

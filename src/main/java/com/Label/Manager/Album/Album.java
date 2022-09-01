@@ -6,9 +6,8 @@ import javax.persistence.*;
 @Table(name="album")
 public class Album {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name="catalog_num")
-    private String catalogNum;
+    @Column(name= "album_id")
+    private String id;
     @Column(name="album_title")
     private String albumTitle;
     @Column(name="release_date")
@@ -23,8 +22,8 @@ public class Album {
     public Album() {
     }
 
-    public Album(String catalogNum, String albumTitle, String releaseDate, int albumSales, float cost, int revenue) {
-        this.catalogNum = catalogNum;
+    public Album(String id, String albumTitle, String releaseDate, int albumSales, float cost, int revenue) {
+        this.id = id;
         this.albumTitle = albumTitle;
         this.releaseDate = releaseDate;
         this.albumSales = albumSales;
@@ -32,12 +31,12 @@ public class Album {
         this.revenue = revenue;
     }
 
-    public String getCatalogNum() {
-        return catalogNum;
+    public String getId() {
+        return id;
     }
 
-    public void setCatalogNum(String catalogNum) {
-        this.catalogNum = catalogNum;
+    public void setId(String catalogNum) {
+        this.id = catalogNum;
     }
 
     public String getAlbumTitle() {
@@ -83,7 +82,7 @@ public class Album {
     @Override
     public String toString() {
         return "album{" +
-                "catalogNum='" + catalogNum + '\'' +
+                "catalogNum='" + id + '\'' +
                 ", albumTitle='" + albumTitle + '\'' +
                 ", releaseDate='" + releaseDate + '\'' +
                 ", albumSales=" + albumSales +
