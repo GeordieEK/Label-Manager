@@ -6,6 +6,7 @@ import java.time.LocalDate;
 
 @Entity
 // @Entity tells JPA to use this class to create a row in a relational table
+// This class sets out how a student object (or row in a table) is to be created.
 public class Student {
     @Id
     // AmigosCode JPA 2021 Tutorial, 35 mins, gives details on how to have generated sequence for ID

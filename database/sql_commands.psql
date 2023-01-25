@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS album(
+CREATE TABLE IF NOT EXISTS album (
                                     album_id VARCHAR(10),
                                     album_title VARCHAR(50),
                                     release_date DATE,
@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS album(
                                     album_revenue FLOAT
 );
 
-CREATE TABLE IF NOT EXISTS song(
+CREATE TABLE IF NOT EXISTS song (
                                     song_id VARCHAR(20),
                                     catalog_num VARCHAR(10),
                                     song_title VARCHAR(70),

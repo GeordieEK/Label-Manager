@@ -9,7 +9,7 @@ import java.util.Optional;
 //Tells Spring this is a REST controller
 @RestController
 // @RequestMapping signifies the type of request and its url path, it is used at class level
-@RequestMapping(path = "/album")
+@RequestMapping(path = "/albums")
 public class AlbumController {
     private AlbumService albumService;
 
@@ -33,7 +33,7 @@ public class AlbumController {
         return albumService.getAlbum(id);
     }
 
-    // @RequestBody allows for the .json payload of the request body to be converted to a album instance
+    // @RequestBody allows for the .json payload of the request body to be converted to an album instance
     @PostMapping
     public void addAlbum(@RequestBody Album album) {
         albumService.addAlbum(album);

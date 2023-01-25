@@ -10,7 +10,7 @@ public class Song {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="song_id")
-    private String songId;
+    private String id;
     @Column(name="song_title")
     private String songTitle;
     @Column(name="song_sales")
@@ -34,12 +34,12 @@ public class Song {
         this.album = album;
     }
 
-    public String getSongId() {
-        return songId;
+    public String getId() {
+        return id;
     }
 
-    public void setSongId(String songId) {
-        this.songId = songId;
+    public void setId(String songId) {
+        this.id = songId;
     }
 
     public String getSongTitle() {
@@ -69,7 +69,7 @@ public class Song {
     @Override
     public String toString() {
         return "Song{" +
-                "songId='" + songId + '\'' +
+                "songId='" + id + '\'' +
                 ", songTitle='" + songTitle + '\'' +
                 ", songSales=" + songSales +
                 ", revenue=" + revenue +

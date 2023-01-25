@@ -10,7 +10,7 @@ import java.util.Optional;
 //Tells Spring this is a REST controller
 @RestController
 // @RequestMapping signifies the type of request and its url path, it is used at class level
-@RequestMapping(path = "/album/{albumId}/song")
+@RequestMapping(path = "/albums/{albumId}/songs")
 public class SongController {
 
     private SongService songService;
